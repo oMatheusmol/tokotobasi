@@ -1,0 +1,39 @@
+{
+  "name": "@brentschooley/tokotobasi",
+  "version": "1.0.0",
+  "description": "A CLI",
+  "main": "src/cli.js",
+  "bin": {
+    "@brentschooley/create-project": "bin/tokotobasi",
+    "create-project": "bin/tokotobasi"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "create-project"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oMatheusmol/tokotobasi.git"
+  },
+  "author": "Matheus Mol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oMatheusmol/tokotobasi/issues"
+  },
+  "homepage": "https://github.com/oMatheusmol/tokotobasi#readme",
+  "dependencies": {
+    "arg": "^5.0.1",
+    "chalk": "^5.0.0",
+    "each-async": "^2.0.0",
+    "esm": "^3.2.25",
+    "indent-string": "^5.0.0",
+    "inquirer": "^8.2.0",
+    "pluralize": "^8.0.0"
+  }
+}
