@@ -1,13 +1,9 @@
 'use stric';
-const BaseCommand = require('../commands/base_command');
+const BaseCommand = require('./base_command');
 const pluralize = require('pluralize');
 const path = require('path');
-const { threadId } = require('worker_threads');
 
-/**
- * Generate project
- */
-module.exports = class ProjectCommand extends BaseCommand {
+module.exports = class CreateCommand extends BaseCommand {
   constructor(schematic) {
     super('install');
     this.name = schematic;

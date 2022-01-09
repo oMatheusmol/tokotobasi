@@ -1,3 +1,3 @@
 module.exports = {
-  install_command: require('./install.command'),
+  create_command: require('./create.command'),
 };

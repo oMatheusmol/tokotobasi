@@ -8,10 +8,10 @@ function parseArgumentsIntoOptions(rawArgs){
         {
             '--version': Boolean,
             '--git': Boolean,
-            '--install': Boolean,
+            '--create': Boolean,
             '-v': '--version',
             '-g': '--git',
-            '-i': '--install'
+            '-c': '--create'
 
         },
         {
@@ -22,7 +22,7 @@ function parseArgumentsIntoOptions(rawArgs){
     return {
         version: args['--version'] || args['-v'],
         git: args['--git'] || args['-g'],
-        install: args['--install'] || args['-i']
+        create: args['--create'] || args['-c']
     };
 
 }
@@ -31,7 +31,8 @@ function parseArgumentsIntoOptions(rawArgs){
 
 export function cli(argv) {
     let options = parseArgumentsIntoOptions(argv);
-    if(options.install){
-       new commands.install_command(argv[3]).command()
+    console.log(options);
+    if(options.create){
+       new commands.create_command(argv[3]).command()
     }
 }
