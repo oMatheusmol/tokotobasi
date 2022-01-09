@@ -637,7 +637,7 @@ module.exports = class CreateCommand extends BaseCommand {
     const vsCodeGenerate = require('../templates/vsCode.template');
 
     this.generate(
-      `${this.home}`+'/.vsCode',
+      `${this.home}`+'/.vscode',
       vsCodePath,
       vsCodeGenerate.get(),
     );
