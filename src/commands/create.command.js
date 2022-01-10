@@ -17,13 +17,24 @@ module.exports = class CreateCommand extends BaseCommand {
       this.generateVsCode();
       this.generatePresentation();
       this.generateInfrastructure();
-      //this.generateCommon();
+      this.generateCommon();
       
     } catch (err) {
       console.error(('Fail create new project'));
       console.error((err.message));
     }
   }
+
+  generateCommon(){
+    this.generateErros();
+    // this.generateGeneric();
+    // this.generateHelpers();
+    // this.generateSecurity();
+    // this.generateUtils();
+    // this.generateValidation();
+  }
+
+  
 
   generateInfrastructure() {
     this.generateExpress();
@@ -41,7 +52,527 @@ module.exports = class CreateCommand extends BaseCommand {
 
   generateModules() {
     this.generateModulesAuth();
-    //this.generateModulesUsers();
+    this.generateModulesUsers();
+  }
+
+  generateModulesUsers(){
+    this.generateModulesUsersAuthentication();
+    this.generateModulesUsersController();
+    this.generateModulesUsersDocs();
+    this.generateModulesUsersFactory();
+    this.generateModulesUsersMiddleware();
+    this.generateModulesUsersInterface();
+    this.generateModulesUsersRepository();
+    this.generateModulesUsersRouter();
+    this.generateModulesUsersUseCase();
+    this.generateModulesUsersValidation();
+  }
+
+  generateModulesUsersInterface(){
+    const userInterface = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'user-interface.ts');
+    const userInterfaceGenerate = require('../templates/infrastructure/express/modules/users/interface/user-interface.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/interface',
+      userInterface,
+      userInterfaceGenerate.get(),
+    );
+
+    const createUserBodyRequest = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'create-user-body-request.ts');
+    const createUserBodyRequestGenerate = require('../templates/infrastructure/express/modules/users/interface/create-user-body-request.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/interface',
+      createUserBodyRequest,
+      createUserBodyRequestGenerate.get(),
+    );
+
+    const createUserRepository = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'create-user-repository.ts');
+    const createUserRepositoryGenerate = require('../templates/infrastructure/express/modules/users/interface/create-user-repository.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/interface',
+      createUserRepository,
+      createUserRepositoryGenerate.get(),
+    );
+
+    const createUserUseCase = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'create-user-use-case.ts');
+    const createUserUseCaseGenerate = require('../templates/infrastructure/express/modules/users/interface/create-user-use-case.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/interface',
+      createUserUseCase,
+      createUserUseCaseGenerate.get(),
+    );
+
+    const createUser = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'create-user.ts');
+    const createUserGenerate = require('../templates/infrastructure/express/modules/users/interface/create-user.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/interface',
+      createUser,
+      createUserGenerate.get(),
+    );
+
+    const deleteUserByIdUseCase = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'delete-user-by-id-use-case.ts');
+    const deleteUserByIdUseCaseGenerate = require('../templates/infrastructure/express/modules/users/interface/delete-user-by-id-use-case.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/interface',
+      deleteUserByIdUseCase,
+      deleteUserByIdUseCaseGenerate.get(),
+    );
+
+    const deleteUserById = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'delete-user-by-id.ts');
+    const deleteUserByIdGenerate = require('../templates/infrastructure/express/modules/users/interface/delete-user-by-id.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/interface',
+      deleteUserById,
+      deleteUserByIdGenerate.get(),
+    );
+
+    const findAllUsersRepository = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'find-all-users-repository.ts');
+    const findAllUsersRepositoryGenerate = require('../templates/infrastructure/express/modules/users/interface/find-all-users-repository.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/interface',
+      findAllUsersRepository,
+      findAllUsersRepositoryGenerate.get(),
+    );
+
+    const findAllUsersUseCase = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'find-all-users-use-case.ts');
+    const findAllUsersUseCaseGenerate = require('../templates/infrastructure/express/modules/users/interface/find-all-users-use-case.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/interface',
+      findAllUsersUseCase,
+      findAllUsersUseCaseGenerate.get(),
+    );
+
+    const findUserByEmailRepository = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'find-user-by-email-repository.ts');
+    const findUserByEmailRepositoryGenerate = require('../templates/infrastructure/express/modules/users/interface/find-user-by-email-repository.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/interface',
+      findUserByEmailRepository,
+      findUserByEmailRepositoryGenerate.get(),
+    );
+
+    const findUserByIdRepository = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'find-user-by-id-repository.ts');
+    const findUserByIdRepositoryGenerate = require('../templates/infrastructure/express/modules/users/interface/find-user-by-id-repository.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/interface',
+      findUserByIdRepository,
+      findUserByIdRepositoryGenerate.get(),
+    );
+
+    const findUserByIdUseCase = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'find-user-by-id-use-case.ts');
+    const findUserByIdUseCaseGenerate = require('../templates/infrastructure/express/modules/users/interface/find-user-by-id-use-case.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/interface',
+      findUserByIdUseCase,
+      findUserByIdUseCaseGenerate.get(),
+    );
+
+    const updateUseUseCase = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'update-use-use-case.ts');
+    const updateUseUseCaseGenerate = require('../templates/infrastructure/express/modules/users/interface/update-use-use-case.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/interface',
+      updateUseUseCase,
+      updateUseUseCaseGenerate.get(),
+    );
+
+    const updateUserBodyRepository = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'update-user-body-repository.ts');
+    const updateUserBodyRepositoryGenerate = require('../templates/infrastructure/express/modules/users/interface/update-user-body-repository.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/interface',
+      updateUserBodyRepository,
+      updateUserBodyRepositoryGenerate.get(),
+    );
+
+    const updateUserBodyRequest = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'update-user-body-request.ts');
+    const updateUserBodyRequestGenerate = require('../templates/infrastructure/express/modules/users/interface/update-user-body-request.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/interface',
+      updateUserBodyRequest,
+      updateUserBodyRequestGenerate.get(),
+    );
+
+    const updateUserByIdRepository  = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'update-user-by-id-repository.ts');
+    const updateUserByIdRepositoryGenerate = require('../templates/infrastructure/express/modules/users/interface/update-user-by-id-repository.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/interface',
+      updateUserByIdRepository,
+      updateUserByIdRepositoryGenerate.get(),
+    );
+
+  }
+
+  generateModulesUsersValidation(){
+    const createUserValidation = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'validation', 'create-user-validation.ts');
+    const createUserValidationGenerate = require('../templates/infrastructure/express/modules/users/validation/create-user-validation.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/validation',
+      createUserValidation,
+      createUserValidationGenerate.get(),
+    );
+
+    const deleteUserByIdValidation = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'validation', 'delete-user-by-id-validation.ts');
+    const deleteUserByIdValidationGenerate = require('../templates/infrastructure/express/modules/users/validation/delete-user-by-id-validation.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/validation',
+      deleteUserByIdValidation,
+      deleteUserByIdValidationGenerate.get(),
+    );
+
+    const findAllUsersValidation = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'validation', 'find-all-users-validation.ts');
+    const findAllUsersValidationGenerate = require('../templates/infrastructure/express/modules/users/validation/find-all-users-validation.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/validation',
+      findAllUsersValidation,
+      findAllUsersValidationGenerate.get(),
+    );
+
+    const updateUserValidation = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'validation', 'update-user-validation.ts');
+    const updateUserValidationGenerate = require('../templates/infrastructure/express/modules/users/validation/update-user-validation.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/validation',
+      updateUserValidation,
+      updateUserValidationGenerate.get(),
+    );
+
+    const userCompositeValidation = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'validation', 'user-composite-validation.ts');
+    const userCompositeValidationGenerate = require('../templates/infrastructure/express/modules/users/validation/user-composite-validation.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/validation',
+      userCompositeValidation,
+      userCompositeValidationGenerate.get(),
+    );
+
+    const userPasswordsMustMatchUpdateValidation = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'validation', 'user-passwords-must-match-update-validation.ts');
+    const userPasswordsMustMatchUpdateValidationGenerate = require('../templates/infrastructure/express/modules/users/validation/user-passwords-must-match-update-validation.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/validation',
+      userPasswordsMustMatchUpdateValidation,
+      userPasswordsMustMatchUpdateValidationGenerate.get(),
+    );
+
+    const userPasswordsMustMatchValidation = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'validation', 'user-passwords-must-match-validation.ts');
+    const userPasswordsMustMatchValidationGenerate = require('../templates/infrastructure/express/modules/users/validation/user-passwords-must-match-validation.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/validation',
+      userPasswordsMustMatchValidation,
+      userPasswordsMustMatchValidationGenerate.get(),
+    );
+
+    const userRequiredFieldsValidation = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'validation', 'user-required-fields-validation.ts');
+    const userRequiredFieldsValidationGenerate = require('../templates/infrastructure/express/modules/users/validation/user-required-fields-validation.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/validation',
+      userRequiredFieldsValidation,
+      userRequiredFieldsValidationGenerate.get(),
+    );
+  }
+
+  generateModulesUsersUseCase(){
+    const createUserUseCase = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'use-case', 'create-user-use-case.ts');
+    const createUserUseCaseGenerate = require('../templates/infrastructure/express/modules/users/use-case/create-user-use-case.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/use-case',
+      createUserUseCase,
+      createUserUseCaseGenerate.get(),
+    );
+
+    const deleteUserById = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'use-case', 'delete-user-by-id.ts');
+    const deleteUserByIdGenerate = require('../templates/infrastructure/express/modules/users/use-case/delete-user-by-id.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/use-case',
+      deleteUserById,
+      deleteUserByIdGenerate.get(),
+    );
+
+    const findAllUsers = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'use-case', 'find-all-users.ts');
+    const findAllUsersGenerate = require('../templates/infrastructure/express/modules/users/use-case/find-all-users.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/use-case',
+      findAllUsers,
+      findAllUsersGenerate.get(),
+    );
+
+    const findUserById = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'use-case', 'find-user-by-id.ts');
+    const findUserByIdGenerate = require('../templates/infrastructure/express/modules/users/use-case/find-user-by-id.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/use-case',
+      findUserById,
+      findUserByIdGenerate.get(),
+    );
+
+    const updateUserUseCase = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'use-case', 'update-user-use-case.ts');
+    const updateUserUseCaseGenerate = require('../templates/infrastructure/express/modules/users/use-case/update-user-use-case.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/use-case',
+      updateUserUseCase,
+      updateUserUseCaseGenerate.get(),
+    );
+  }
+
+  generateModulesUsersRouter(){
+    const userRoute = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'router', 'user-router.ts');
+    const createUserRepositoryGenerate = require('../templates/infrastructure/express/modules/users/router/user-router.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/router',
+      userRoute,
+      createUserRepositoryGenerate.get(),
+    );
+  }
+
+  generateModulesUsersRepository() {
+    const createUserRepository = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'repository', 'create-user-repository.ts');
+    const createUserRepositoryGenerate = require('../templates/infrastructure/express/modules/users/repository/create-user-repository.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/repository',
+      createUserRepository,
+      createUserRepositoryGenerate.get(),
+    );
+
+    const deleteUserByIdRepository = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'repository', 'delete-user-by-id-repository.ts');
+    const deleteUserByIdRepositoryGenerate = require('../templates/infrastructure/express/modules/users/repository/delete-user-by-id-repository.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/repository',
+      deleteUserByIdRepository,
+      deleteUserByIdRepositoryGenerate.get(),
+    );
+
+    const findUserByIdRepository = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'repository', 'find-user-by-id-repository.ts');
+    const findUserByIdRepositoryGenerate = require('../templates/infrastructure/express/modules/users/repository/find-user-by-id-repository.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/repository',
+      findUserByIdRepository,
+      findUserByIdRepositoryGenerate.get(),
+    );
+
+    const findAllUsersRepository = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'repository', 'find-all-users-repository.ts');
+    const findAllUsersRepositoryGenerate = require('../templates/infrastructure/express/modules/users/repository/find-all-users-repository.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/repository',
+      findAllUsersRepository,
+      findAllUsersRepositoryGenerate.get(),
+    );
+
+    const findUserByEmailRepository = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'repository', 'find-user-by-email-repository.ts');
+    const findUserByEmailRepositoryGenerate = require('../templates/infrastructure/express/modules/users/repository/find-user-by-email-repository.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/repository',
+      findUserByEmailRepository,
+      findUserByEmailRepositoryGenerate.get(),
+    );
+
+    const updateUserByIdRepository = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'repository', 'update-user-by-id-repository.ts');
+    const updateUserByIdRepositoryGenerate = require('../templates/infrastructure/express/modules/users/repository/update-user-by-id-repository.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/repository',
+      updateUserByIdRepository,
+      updateUserByIdRepositoryGenerate.get(),
+    );
+  }
+
+  generateModulesUsersMiddleware(){
+    const loggedUserIdTargetUserMiddlewareFactory = path.join(this.home,'src', 'infrastructure', 'express' ,'modules', 'users', 'middleware', 'logged-user-id-target-user-middleware-factory.ts');
+    const loggedUserIdTargetUserMiddlewareFactoryGenerate = require('../templates/infrastructure/express/modules/users/middleware/logged-user-id-target-user-middleware-factory.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/middleware',
+      loggedUserIdTargetUserMiddlewareFactory,
+      loggedUserIdTargetUserMiddlewareFactoryGenerate.get(),
+    );
+  }
+
+  generateModulesUsersFactory(){
+    const createUserControllerFactory = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'factory', 'create-user-controller-factory.ts');
+    const createUserControllerFactoryGenerate = require('../templates/infrastructure/express/modules/users/factory/create-user-controller-factory.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/factory',
+      createUserControllerFactory,
+      createUserControllerFactoryGenerate.get(),
+    );
+
+    const deleteUserControllerFactory = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'factory', 'delete-user-controller-factory.ts');
+    const deleteUserControllerFactoryGenerate = require('../templates/infrastructure/express/modules/users/factory/delete-user-controller-factory.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/factory',
+      deleteUserControllerFactory,
+      deleteUserControllerFactoryGenerate.get(),
+    );
+
+    const findAllUsersControllerFactory = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'factory', 'find-all-users-controller-factory.ts');
+    const findAllUsersControllerFactoryGenerate = require('../templates/infrastructure/express/modules/users/factory/find-all-users-controller-factory.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/factory',
+      findAllUsersControllerFactory,
+      findAllUsersControllerFactoryGenerate.get(),
+    );
+
+    const findUserByIdControllerFactory = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'factory', 'find-user-by-id-controller-factory.ts');
+    const findUserByIdControllerFactoryGenerate = require('../templates/infrastructure/express/modules/users/factory/find-user-by-id-controller-factory.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/factory',
+      findUserByIdControllerFactory,
+      findUserByIdControllerFactoryGenerate.get(),
+    );
+
+    const updateUserControllerFactory = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'factory', 'update-user-controller-factory.ts');
+    const updateUserControllerFactoryGenerate = require('../templates/infrastructure/express/modules/users/factory/update-user-controller-factory.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/factory',
+      updateUserControllerFactory,
+      updateUserControllerFactoryGenerate.get(),
+    );
+  }
+
+  generateModulesUsersDocs(){
+    const createUserDefinitionsSwagger = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'docs', 'create-user-definitions-swagger.ts');
+    const createUserDefinitionsSwaggerGenerate = require('../templates/infrastructure/express/modules/users/docs/create-user-definitions-swagger.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/docs',
+      createUserDefinitionsSwagger,
+      createUserDefinitionsSwaggerGenerate.get(),
+    );
+
+    const deleteUserByIdDefinitionsSwagger = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'docs', 'delete-user-by-id-definitions-swagger.ts');
+    const deleteUserByIdDefinitionsSwaggerGenerate = require('../templates/infrastructure/express/modules/users/docs/delete-user-by-id-definitions-swagger.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/docs',
+      deleteUserByIdDefinitionsSwagger,
+      deleteUserByIdDefinitionsSwaggerGenerate.get(),
+    );
+
+    const findAllUsersDefinitionsSwagger = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'docs', 'find-all-users-definitions-swagger.ts');
+    const findAllUsersDefinitionsSwaggerGenerate = require('../templates/infrastructure/express/modules/users/docs/find-all-users-definitions-swagger.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/docs',
+      findAllUsersDefinitionsSwagger,
+      findAllUsersDefinitionsSwaggerGenerate.get(),
+    );
+
+    const findUserByIdDefinitionsSwagger = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'docs', 'find-user-by-id-definitions-swagger.ts');
+    const findUserByIdDefinitionsSwaggerGenerate = require('../templates/infrastructure/express/modules/users/docs/find-user-by-id-definitions-swagger.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/docs',
+      findUserByIdDefinitionsSwagger,
+      findUserByIdDefinitionsSwaggerGenerate.get(),
+    );
+
+    const updateUserDefinitionsSwagger = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'docs', 'update-user-definitions-swagger.ts');
+    const updateUserDefinitionsSwaggerGenerate = require('../templates/infrastructure/express/modules/users/docs/update-user-definitions-swagger.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/docs',
+      updateUserDefinitionsSwagger,
+      updateUserDefinitionsSwaggerGenerate.get(),
+    );
+
+    const usersDefinitionsSwagger = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'docs', 'users-definitions-swagger.ts');
+    const usersDefinitionsSwaggerGenerate = require('../templates/infrastructure/express/modules/users/docs/users-definitions-swagger.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/docs',
+      usersDefinitionsSwagger,
+      usersDefinitionsSwaggerGenerate.get(),
+    );
+  }
+
+  generateModulesUsersController(){
+    const createUserController = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'controller', 'create-user-controller.ts');
+    const createUserControllerGenerate = require('../templates/infrastructure/express/modules/users/controller/create-user-controller.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/controller',
+      createUserController,
+      createUserControllerGenerate.get(),
+    );
+
+    const deleteUserController = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'controller', 'delete-user-by-id-controller.ts');
+    const deleteUserControllerGenerate = require('../templates/infrastructure/express/modules/users/controller/delete-user-by-id-controller.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/controller',
+      deleteUserController,
+      deleteUserControllerGenerate.get(),
+    );
+
+    const findAllUsersController = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'controller', 'find-all-users-controller.ts');
+    const findAllUsersControllerGenerate = require('../templates/infrastructure/express/modules/users/controller/find-all-users-controller.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/controller',
+      findAllUsersController,
+      findAllUsersControllerGenerate.get(),
+    );
+
+    const findUserByIdController = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'controller', 'find-user-by-id-controller.ts');
+    const findUserByIdControllerGenerate = require('../templates/infrastructure/express/modules/users/controller/find-user-by-id-controller.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/controller',
+      findUserByIdController,
+      findUserByIdControllerGenerate.get(),
+    );
+
+    const updateUserController = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'controller', 'update-user-controller.ts');
+    const updateUserControllerGenerate = require('../templates/infrastructure/express/modules/users/controller/update-user-controller.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/controller',
+      updateUserController,
+      updateUserControllerGenerate.get(),
+    );
+  }
+
+  generateModulesUsersAuthentication(){
+    const loggedUserIsTargetUser = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'authentication', 'logged-user-is-target-user.ts');
+    const loggedUserIsTargetUserGenerate = require('../templates/infrastructure/express/modules/users/authentication/logged-user-is-target-user.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/authentication',
+      loggedUserIsTargetUser,
+      loggedUserIsTargetUserGenerate.get(),
+    );
   }
 
   generateModulesAuth(){
