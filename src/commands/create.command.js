@@ -27,11 +27,53 @@ module.exports = class CreateCommand extends BaseCommand {
 
   generateCommon(){
     this.generateErros();
-    // this.generateGeneric();
-    // this.generateHelpers();
-    // this.generateSecurity();
+    this.generateGeneric();
+    this.generateHelpers();
+    this.generateSecurity();
     // this.generateUtils();
     // this.generateValidation();
+  }
+
+  generateSecurity(){
+    const jwtTokenAdapter = path.join(this.home, 'src', 'common', 'security', 'jwt-token-adapter.ts');
+    const jwtTokenAdapterGenerate = require('../templates/common/security/jwt-token-adapter.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/security',
+      jwtTokenAdapter,
+      jwtTokenAdapterGenerate.get(),
+    );
+
+    const jwtToken = path.join(this.home, 'src', 'common', 'security', 'jwt-token.ts');
+    const jwtTokenGenerate = require('../templates/common/security/jwt-token.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/security',
+      jwtToken,
+      jwtTokenGenerate.get(),
+    );
+  }
+
+  generateHelpers(){
+    const objectKeyExists = path.join(this.home, 'src', 'common', 'helpers', 'object-key-exists.ts');
+    const objectKeyExistsGenerate = require('../templates/common/helpers/object-key-exists.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/helpers',
+      objectKeyExists,
+      objectKeyExistsGenerate.get(),
+    );
+  }
+
+  generateGeneric(){
+    const genericStringSanitizerAdapter = path.join(this.home, 'src', 'common', 'generic', 'generic-string-sanitizer-adapter.ts');
+    const genericStringSanitizerAdapterGenerate = require('../templates/common/generic/generic-string-sanitizer-adapter.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/generic',
+      genericStringSanitizerAdapter,
+      genericStringSanitizerAdapterGenerate.get(),
+    );
   }
 
   generateErros(){
