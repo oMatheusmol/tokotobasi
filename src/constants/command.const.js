@@ -1,4 +1,4 @@
 const command_const = {
-  install: 'install',
+  create: 'create',
 };
 module.exports = command_const;

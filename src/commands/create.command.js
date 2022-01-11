@@ -5,7 +5,7 @@ const path = require('path');
 
 module.exports = class CreateCommand extends BaseCommand {
   constructor(schematic) {
-    super('install');
+    super('create');
     this.name = schematic;
     this.home = `./${pluralize.singular(this.name)}`
   }
