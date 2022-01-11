@@ -1,21 +1,24 @@
 {
-  "name": "@brentschooley/tokotobasi",
+  "name": "tokotobasi",
   "version": "1.0.0",
   "description": "A CLI",
-  "main": "src/cli.js",
+  "main": "index.js",
   "bin": {
-    "@brentschooley/create-project": "bin/tokotobasi",
-    "create-project": "bin/tokotobasi"
+    "tkt": "index.js"
   },
   "publishConfig": {
     "access": "public"
+  },  
+  "engines": {
+    "node": ">=10.10"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test"
   },
   "keywords": [
     "cli",
-    "create-project"
+    "create-project",
+    "create"
   ],
   "repository": {
     "type": "git",
