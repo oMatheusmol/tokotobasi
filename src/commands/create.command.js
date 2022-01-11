@@ -30,8 +30,66 @@ module.exports = class CreateCommand extends BaseCommand {
     this.generateGeneric();
     this.generateHelpers();
     this.generateSecurity();
-    // this.generateUtils();
-    // this.generateValidation();
+    this.generateUtils();
+    this.generateValidation();
+  }
+
+  generateValidation(){
+    const emailValidatorAdapter = path.join(this.home, 'src', 'common', 'validation', 'email-validator-adapter.ts');
+    const emailValidatorAdapterGenerate = require('../templates/common/validation/email-validator-adapter.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/validation',
+      emailValidatorAdapter,
+      emailValidatorAdapterGenerate.get(),
+    );
+
+    const userEmailValidation = path.join(this.home, 'src', 'common', 'validation', 'user-email-validation.ts');
+    const userEmailValidationGenerate = require('../templates/common/validation/user-email-validation.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/validation',
+      userEmailValidation,
+      userEmailValidationGenerate.get(),
+    );
+
+    const validateStringNotEmpty = path.join(this.home, 'src', 'common', 'validation', 'validate-string-not-empty.ts');
+    const validateStringNotEmptyGenerate = require('../templates/common/validation/validate-string-not-empty.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/validation',
+      validateStringNotEmpty,
+      validateStringNotEmptyGenerate.get(),
+    );
+
+    const validationComposite = path.join(this.home, 'src', 'common', 'validation', 'validation-composite.ts');
+    const validationCompositeGenerate = require('../templates/common/validation/validation-composite.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/validation',
+      validationComposite,
+      validationCompositeGenerate.get(),
+    );
+  }
+
+  generateUtils(){
+    const bcryptAdapter = path.join(this.home, 'src', 'common', 'utils', 'bcrypt-adapter.ts');
+    const bcryptAdapterGenerate = require('../templates/common/utils/bcrypt-adapter.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/utils',
+      bcryptAdapter,
+      bcryptAdapterGenerate.get(),
+    );
+ 
+    const formatDateTime = path.join(this.home, 'src', 'common', 'utils', 'format-date-time.ts');
+    const formatDateTimeGenerate = require('../templates/common/utils/format-date-time.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/utils',
+      formatDateTime,
+      formatDateTimeGenerate.get(),
+    );
   }
 
   generateSecurity(){
