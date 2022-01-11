@@ -34,7 +34,106 @@ module.exports = class CreateCommand extends BaseCommand {
     // this.generateValidation();
   }
 
-  
+  generateErros(){
+    const badResquestError = path.join(this.home, 'src', 'common', 'errors', 'bad-request-error.ts');
+    const badResquestErrorGenerate = require('../templates/common/errors/bad-request-error.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/errors',
+      badResquestError,
+      badResquestErrorGenerate.get(),
+    );
+
+    const dateTimeError = path.join(this.home, 'src', 'common', 'errors', 'date-time-error.ts');
+    const dateTimeErrorGenerate = require('../templates/common/errors/date-time-error.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/errors',
+      dateTimeError,
+      dateTimeErrorGenerate.get(),
+    );
+
+    const defaultApplicationError = path.join(this.home, 'src', 'common', 'errors', 'default-application-error.ts');
+    const defaultApplicationErrorGenerate = require('../templates/common/errors/default-application-error.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/errors',
+      defaultApplicationError,
+      defaultApplicationErrorGenerate.get(),
+    );
+
+    const emailValidationError = path.join(this.home, 'src', 'common', 'errors', 'email-validation-error.ts');
+    const emailValidationErrorGenerate = require('../templates/common/errors/email-validation-error.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/errors',
+      emailValidationError,
+      emailValidationErrorGenerate.get(),
+    );
+
+    const existsError = path.join(this.home, 'src', 'common', 'errors', 'exists-error.ts');
+    const existsErrorGenerate = require('../templates/common/errors/exists-error.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/errors',
+      existsError,
+      existsErrorGenerate.get(),
+    );
+
+    const internalServerError = path.join(this.home, 'src', 'common', 'errors', 'internal-server-error.ts');
+    const internalServerErrorGenerate = require('../templates/common/errors/internal-server-error.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/errors',
+      internalServerError,
+      internalServerErrorGenerate.get(),
+    );
+
+    const notFoundError = path.join(this.home, 'src', 'common', 'errors', 'not-found-error.ts');
+    const notFoundErrorGenerate = require('../templates/common/errors/not-found-error.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/errors',
+      notFoundError,
+      notFoundErrorGenerate.get(),
+    );
+
+    const repositoryError = path.join(this.home, 'src', 'common', 'errors', 'repository-error.ts');
+    const repositoryErrorGenerate = require('../templates/common/errors/repository-error.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/errors',
+      repositoryError,
+      repositoryErrorGenerate.get(),
+    );
+
+    const requestValidationError = path.join(this.home, 'src', 'common', 'errors', 'request-validation-error.ts');
+    const requestValidationErrorGenerate = require('../templates/common/errors/request-validation-error.command.js');
+    
+    this.generate(
+      `${this.home}`+'/src/common/errors',
+      requestValidationError,
+      requestValidationErrorGenerate.get(),
+    );
+
+    const sanitizerError = path.join(this.home, 'src', 'common', 'errors', 'sanitizer-error.ts');
+    const sanitizerErrorGenerate = require('../templates/common/errors/sanitizer-error.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/errors',
+      sanitizerError,
+      sanitizerErrorGenerate.get(),
+    );
+
+    const unauthorizedError = path.join(this.home, 'src', 'common', 'errors', 'unauthorized-error.ts');
+    const unauthorizedErrorGenerate = require('../templates/common/errors/unauthorized-error.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/errors',
+      unauthorizedError,
+      unauthorizedErrorGenerate.get(),
+    );
+  }
 
   generateInfrastructure() {
     this.generateExpress();
@@ -854,7 +953,6 @@ module.exports = class CreateCommand extends BaseCommand {
       knexConfigTemplate.get(),
     );
   }
-
 
   generateKnexFile(){
     const knexFilePath = path.join(this.home, 'src', 'infrastructure', 'knex', 'knexfile.ts');
