@@ -1,6 +1,6 @@
 {
   "name": "tokotobasi",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A CLI",
   "main": "index.js",
   "bin": {

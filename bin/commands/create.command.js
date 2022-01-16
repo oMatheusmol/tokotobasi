@@ -751,7 +751,7 @@ module.exports = class CreateCommand extends BaseCommand {
       updateUserDefinitionsSwaggerGenerate.get(),
     );
 
-    const usersDefinitionsSwagger = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'docs', 'users-definitions-swagger.ts');
+    const usersDefinitionsSwagger = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'docs', 'users-definitions.swagger.ts');
     const usersDefinitionsSwaggerGenerate = require('../templates/infrastructure/express/modules/users/docs/users-definitions-swagger.command.js');
 
     this.generate(
