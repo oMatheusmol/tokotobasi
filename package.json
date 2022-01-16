@@ -1,7 +1,7 @@
 {
   "name": "tokotobasi",
   "version": "1.0.4",
-  "description": "A CLI",
+  "description": "A CLI to generate a typescript project",
   "main": "index.js",
   "bin": {
     "tkt": "index.js"
