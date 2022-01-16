@@ -18,7 +18,7 @@ module.exports = class CreateCommand extends BaseCommand {
       this.generatePresentation();
       this.generateInfrastructure();
       this.generateCommon();
-      
+      console.log(('Project created successfully!'));
     } catch (err) {
       console.error(('Fail create new project'));
       console.error((err.message));
