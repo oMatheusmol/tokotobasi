@@ -1,7 +1,7 @@
 module.exports = {
     get: function (resource) {
       return `import { Controller, RequestModel, ResponseHandler } from '../../../adapters/express-route-adapter';
-import { FindAllUsersUseCase } from '../interface/find-all-users-use_case';
+import { FindAllUsersUseCase } from '../interface/find-all-users-use-case';
 import { User } from '../interface/user-interface';
 
 type FindAllUsersRequestModel = RequestModel<

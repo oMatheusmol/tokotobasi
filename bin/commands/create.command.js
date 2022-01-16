@@ -90,6 +90,33 @@ module.exports = class CreateCommand extends BaseCommand {
       formatDateTime,
       formatDateTimeGenerate.get(),
     );
+
+    const createFutureDate = path.join(this.home, 'src', 'common', 'utils', 'create-future-date.ts');
+    const createFutureDateGenerate = require('../templates/common/utils/create-future-date.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/utils',
+      createFutureDate,
+      createFutureDateGenerate.get(),
+    );
+
+    const isString = path.join(this.home, 'src', 'common', 'utils', 'isString.ts');
+    const isStringGenerate = require('../templates/common/utils/isString.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/utils',
+      isString,
+      isStringGenerate.get(),
+    );
+
+    const zeroPadLeft = path.join(this.home, 'src', 'common', 'utils', 'zero-pad-left.ts');
+    const zeroPadLeftGenerate = require('../templates/common/utils/zero-pad-left.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/utils',
+      zeroPadLeft,
+      zeroPadLeftGenerate.get(),
+    );
   }
 
   generateSecurity(){
@@ -120,6 +147,15 @@ module.exports = class CreateCommand extends BaseCommand {
       `${this.home}`+'/src/common/helpers',
       objectKeyExists,
       objectKeyExistsGenerate.get(),
+    );
+
+    const mapUserFields = path.join(this.home, 'src', 'common', 'helpers', 'map-user-fields.ts');
+    const mapUserFieldsGenerate = require('../templates/common/helpers/map-user-fields.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/common/helpers',
+      mapUserFields,
+      mapUserFieldsGenerate.get(),
     );
   }
 
@@ -275,6 +311,15 @@ module.exports = class CreateCommand extends BaseCommand {
       `${this.home}`+'/src/infrastructure/express/modules/users/interface',
       userInterface,
       userInterfaceGenerate.get(),
+    );
+
+    const roleInterface = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'role-interface.ts');
+    const roleInterfaceGenerate = require('../templates/infrastructure/express/modules/users/interface/role-interface.command.js');
+
+    this.generate(
+      `${this.home}`+'/src/infrastructure/express/modules/users/interface',
+      roleInterface,
+      roleInterfaceGenerate.get(),
     );
 
     const createUserBodyRequest = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'interface', 'create-user-body-request.ts');
@@ -536,7 +581,7 @@ module.exports = class CreateCommand extends BaseCommand {
   }
 
   generateModulesUsersRouter(){
-    const userRoute = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'router', 'user-router.ts');
+    const userRoute = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'router', 'user-route.ts');
     const createUserRepositoryGenerate = require('../templates/infrastructure/express/modules/users/router/user-router.command.js');
 
     this.generate(
@@ -707,7 +752,7 @@ module.exports = class CreateCommand extends BaseCommand {
     );
 
     const usersDefinitionsSwagger = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'docs', 'users-definitions-swagger.ts');
-    const usersDefinitionsSwaggerGenerate = require('../templates/infrastructure/express/modules/users/docs/users-definitions-swagger.command.js');
+    const usersDefinitionsSwaggerGenerate = require('../templates/infrastructure/express/modules/users/docs/users-definitions.swagger.command.js');
 
     this.generate(
       `${this.home}`+'/src/infrastructure/express/modules/users/docs',
