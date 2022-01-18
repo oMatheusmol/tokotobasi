@@ -14,7 +14,7 @@ module.exports = class ModuleCommand extends BaseCommand {
             //console.log(`Creating module ${this.name}`);
             this.generateModulesAuthentication();
             this.generateModulesController();
-            // this.generateModulesDocs();
+            this.generateModulesDocs();
             // this.generateModulesFactory();
             this.generateModulesMiddleware();
             // this.generateModulesInterface();
@@ -27,6 +27,62 @@ module.exports = class ModuleCommand extends BaseCommand {
         } catch (err) {
         console.error((err.message));
         }
+    }
+
+    generateModulesDocs() {
+      const createDefinitionsSwagger = path.join('./', 'src', 'infrastructure', 'express' ,'modules',  `${this.name}s`, 'docs', `create-${this.name}-definitions-swagger.ts`);
+      const createDefinitionsSwaggerGenerate = require('../templates/infrastructure/express/modules/generate/docs/create--definitions-swagger.command.js');
+      console.log(this.name, 'name')
+      this.generate(
+        `./src/infrastructure/express/modules/${this.name}s/docs`,
+        createDefinitionsSwagger,
+        createDefinitionsSwaggerGenerate.get(this.name),
+      );
+  
+      const deleteByIdDefinitionsSwagger = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'docs', `delete-${this.name}-by-id-definitions-swagger.ts`);
+      const deleteByIdDefinitionsSwaggerGenerate = require('../templates/infrastructure/express/modules/generate/docs/delete--by-id-definitions-swagger.command.js');
+  
+      this.generate(
+        `./src/infrastructure/express/modules/${this.name}s/docs`,
+        deleteByIdDefinitionsSwagger,
+        deleteByIdDefinitionsSwaggerGenerate.get(this.name),
+      );
+  
+      const findAllsDefinitionsSwagger = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'docs', `find-all-${this.name}s-definitions-swagger.ts`);
+      const findAllsDefinitionsSwaggerGenerate = require('../templates/infrastructure/express/modules/generate/docs/find-all-s-definitions-swagger.command.js');
+  
+      this.generate(
+        `./src/infrastructure/express/modules/${this.name}s/docs`,
+        findAllsDefinitionsSwagger,
+        findAllsDefinitionsSwaggerGenerate.get(this.name),
+      );
+  
+      const findByIdDefinitionsSwagger = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'docs', `find-${this.name}-by-id-definitions-swagger.ts`);
+      const findByIdDefinitionsSwaggerGenerate = require('../templates/infrastructure/express/modules/generate/docs/find--by-id-definitions-swagger.command.js');
+  
+      this.generate(
+        `./src/infrastructure/express/modules/${this.name}s/docs`,
+        findByIdDefinitionsSwagger,
+        findByIdDefinitionsSwaggerGenerate.get(this.name),
+      );
+  
+      const updateDefinitionsSwagger = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'docs', `update-${this.name}-definitions-swagger.ts`);
+      const updateDefinitionsSwaggerGenerate = require('../templates/infrastructure/express/modules/generate/docs/update--definitions-swagger.command.js');
+  
+      this.generate(
+        `./src/infrastructure/express/modules/${this.name}s/docs`,
+        updateDefinitionsSwagger,
+        updateDefinitionsSwaggerGenerate.get(this.name),
+      );
+  
+      const sDefinitionsSwagger = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'docs', `${this.name}s-definitions.swagger.ts`);
+      const sDefinitionsSwaggerGenerate = require('../templates/infrastructure/express/modules/generate/docs/s-definitions-swagger.command.js');
+  
+      this.generate(
+        `./src/infrastructure/express/modules/${this.name}s/docs`,
+        sDefinitionsSwagger,
+        sDefinitionsSwaggerGenerate.get(this.name),
+      );
     }
 
     generateModulesController() {
@@ -72,7 +128,7 @@ module.exports = class ModuleCommand extends BaseCommand {
         this.generate(
           `/src/infrastructure/express/modules/${this.name}s/controller`,
           updateController,
-          updateControllerGenerate.get(),
+          updateControllerGenerate.get(this.name),
         );
     }
 

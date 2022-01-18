@@ -14,7 +14,7 @@ import { deleteClientByIdControllerFactory } from '../../clients/factory/delete-
 //Clients router
 export const clientRoutes = Router();
 
-//Middleware[]
+//Middlewares
 const { isAuthenticatedMiddleware } = isAuthenticatedMiddlewareFactory();
 const { loggedUserIsTargetBankMiddleware } = loggedUserIsTargetBankMiddlewareFactory();
 
@@ -60,4 +60,3 @@ clientRoutes.delete(
   expressMiddlewareAdapter(loggedUserIsTargetBankMiddleware),
   expressRouteAdapter(deleteClientByIdController),
 );
-

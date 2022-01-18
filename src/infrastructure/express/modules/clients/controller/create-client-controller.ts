@@ -19,10 +19,12 @@ export class CreateClientController implements Controller<Client | never> {
       throw new RequestValidationError('Missing body');
     }
 
-    const { name } = requestModel.body;
+    const { name, avatar, address } = requestModel.body;
 
     const sanitizedBody = {
       name: this.sanitize(name),
+      avatar: this.sanitize(avatar),
+      address: this.sanitize(address),
     };
 
     const client = await this.repository.create(sanitizedBody);
