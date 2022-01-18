@@ -581,6 +581,7 @@ module.exports = class CreateCommand extends BaseCommand {
   }
 
   generateModulesUsersRouter(){
+    console.log(this.home, 'home', this.name, 'name');
     const userRoute = path.join(this.home, 'src', 'infrastructure', 'express' ,'modules', 'users', 'router', 'user-route.ts');
     const createUserRepositoryGenerate = require('../templates/infrastructure/express/modules/users/router/user-router.command.js');
 
