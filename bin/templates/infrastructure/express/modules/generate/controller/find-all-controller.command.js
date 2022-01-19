@@ -7,7 +7,7 @@ module.exports = {
     let resourceUpper = pluralize.singular(utils.toFirstCase(resource, true));
       return `import { Controller, RequestModel, ResponseHandler } from '../../../adapters/express-route-adapter';
 import { `+resourceUpper+` } from '../interface/`+resourceLower+`-interface';
-import { FindAll`+resourceUpper+`sUseCase } from '../interface/find-all-`+resourceLower+`s-use_case';
+import { FindAll`+resourceUpper+`sUseCase } from '../interface/find-all-`+resourceLower+`s-use-case';
 
 type FindAll`+resourceUpper+`sRequestModel = RequestModel<
   void,

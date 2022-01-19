@@ -11,22 +11,254 @@ module.exports = class ModuleCommand extends BaseCommand {
 
     command() {
         try {
-            //console.log(`Creating module ${this.name}`);
+            console.log(`Creating module ${this.name}....`);
             this.generateModulesAuthentication();
             this.generateModulesController();
             this.generateModulesDocs();
             this.generateModulesFactory();
             this.generateModulesMiddleware();
-            // this.generateModulesInterface();
+            this.generateModulesInterface();
             this.generateModulesRepository();
             this.generateModulesRouter();
-            // this.generateModulesUseCase();
-            // this.generateModulesValidation();
-            //console.log(`Module ${this.name} created`);
+            this.generateModulesUseCase();
+            this.generateModulesValidation();
+            console.log(`Done!`);
         
         } catch (err) {
+        console.log('Fail! to create module');
         console.error((err.message));
         }
+    }
+
+    generateModulesInterface() {
+      const createBodyRequest = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'interface', `create-${this.name}-body-request.ts`);
+      const createBodyRequestGenerate = require('../templates/infrastructure/express/modules/generate/interface/create--interface.command.js');
+  
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/interface',
+        createBodyRequest,
+        createBodyRequestGenerate.get(this.name),
+      );
+
+      const createRepositoryInterface = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'interface', `create-${this.name}-repository-interface.ts`);
+      const createRepositoryInterfaceGenerate = require('../templates/infrastructure/express/modules/generate/interface/createRepositoryInterface.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/interface',
+        createRepositoryInterface,
+        createRepositoryInterfaceGenerate.get(this.name),
+      );
+
+      const createUseCaseInterface = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'interface', `create-${this.name}-use-case.ts`);
+      const createUseCaseInterfaceGenerate = require('../templates/infrastructure/express/modules/generate/interface/createUseCaseInterface.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/interface',
+        createUseCaseInterface,
+        createUseCaseInterfaceGenerate.get(this.name),
+      );
+
+      const deleteByIdUsecaseInterface = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'interface', `delete-${this.name}-by-id-use-case.ts`);
+      const deleteByIdUsecaseInterfaceGenerate = require('../templates/infrastructure/express/modules/generate/interface/deleteByIdUsecaseInterface.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/interface',
+        deleteByIdUsecaseInterface,
+        deleteByIdUsecaseInterfaceGenerate.get(this.name),
+      );
+
+      const deleteById = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'interface', `delete-${this.name}-by-id.ts`);
+      const deleteByIdGenerate = require('../templates/infrastructure/express/modules/generate/interface/deleteById.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/interface',
+        deleteById,
+        deleteByIdGenerate.get(this.name),
+      );
+
+      const findAllRepository = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'interface', `find-all-${this.name}s-repository.ts`);
+      const findAllRepositoryGenerate = require('../templates/infrastructure/express/modules/generate/interface/findAllRepository.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/interface',
+        findAllRepository,
+        findAllRepositoryGenerate.get(this.name),
+      );
+
+      const findAllUseCase = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'interface', `find-all-${this.name}s-use-case.ts`);
+      const findAllUseCaseGenerate = require('../templates/infrastructure/express/modules/generate/interface/findAllUseCase.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/interface',
+        findAllUseCase,
+        findAllUseCaseGenerate.get(this.name),
+      );
+
+      const findByIdRepository = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'interface', `find-${this.name}-by-id-repository.ts`);
+      const findByIdRepositoryGenerate = require('../templates/infrastructure/express/modules/generate/interface/findByIdRepository.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/interface',
+        findByIdRepository,
+        findByIdRepositoryGenerate.get(this.name),
+      );
+
+      const findByIdUseCase = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'interface', `find-${this.name}-by-id-use-case.ts`);
+      const findByIdUseCaseGenerate = require('../templates/infrastructure/express/modules/generate/interface/findByIdUseCase.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/interface',
+        findByIdUseCase,
+        findByIdUseCaseGenerate.get(this.name),
+      );
+
+      const findByNameRepository = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'interface', `find-${this.name}-by-name-repository.ts`);
+      const findByNameRepositoryGenerate = require('../templates/infrastructure/express/modules/generate/interface/findByNameRepository.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/interface',
+        findByNameRepository,
+        findByNameRepositoryGenerate.get(this.name),
+      );
+
+      const interfaceG = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'interface', `${this.name}-interface.ts`);
+      const interfaceGenerate = require('../templates/infrastructure/express/modules/generate/interface/interface.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/interface',
+        interfaceG,
+        interfaceGenerate.get(this.name),
+      );
+
+      const updateBodyRequest = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'interface', `update-${this.name}-body-request.ts`);
+      const updateBodyRequestGenerate = require('../templates/infrastructure/express/modules/generate/interface/updateBodyRequest.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/interface',
+        updateBodyRequest,
+        updateBodyRequestGenerate.get(this.name),
+      );
+
+      const updateByIdRepository = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'interface', `update-${this.name}-by-id-repository.ts`);
+      const updateByIdRepositoryGenerate = require('../templates/infrastructure/express/modules/generate/interface/updateByIdRepository.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/interface',
+        updateByIdRepository,
+        updateByIdRepositoryGenerate.get(this.name),
+      );
+
+      const updateByIdUseCase = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'interface', `update-${this.name}-use-case.ts`);
+      const updateByIdUseCaseGenerate = require('../templates/infrastructure/express/modules/generate/interface/updateByIdUseCase.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/interface',
+        updateByIdUseCase,
+        updateByIdUseCaseGenerate.get(this.name),
+      );
+    }
+
+    generateModulesValidation() {
+      const createValidation = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'validation', `create-${this.name}-validation.ts`);
+      const createValidationGenerate = require('../templates/infrastructure/express/modules/generate/validation/create--validation.command.js');
+  
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/validation',
+        createValidation,
+        createValidationGenerate.get(this.name),
+      );
+
+      const deleteValidation = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'validation', `delete-${this.name}-by-id-validation.ts`);
+      const deleteValidationGenerate = require('../templates/infrastructure/express/modules/generate/validation/delete--validation.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/validation',
+        deleteValidation,
+        deleteValidationGenerate.get(this.name),
+      );
+
+      const findAllsValidation = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'validation', `find-all-${this.name}s-validation.ts`);
+      const findAllsValidationGenerate = require('../templates/infrastructure/express/modules/generate/validation/find-all-s-validation.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/validation',
+        findAllsValidation,
+        findAllsValidationGenerate.get(this.name),
+      );
+
+      const compositeValidation = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'validation', `${this.name}-composite-validation.ts`);
+      const compositeValidationGenerate = require('../templates/infrastructure/express/modules/generate/validation/composite-validation.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/validation',
+        compositeValidation,
+        compositeValidationGenerate.get(this.name),
+      );
+
+      const requiredFieldsValidation = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'validation', `${this.name}-required-fields-validation.ts`);
+      const requiredFieldsValidationGenerate = require('../templates/infrastructure/express/modules/generate/validation/required-fields-validation.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/validation',
+        requiredFieldsValidation,
+        requiredFieldsValidationGenerate.get(this.name),
+      );
+
+      const updateValidation = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'validation', `update-${this.name}-validation.ts`);
+      const updateValidationGenerate = require('../templates/infrastructure/express/modules/generate/validation/update--validation.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/validation',
+        updateValidation,
+        updateValidationGenerate.get(this.name),
+      );
+    }
+
+    generateModulesUseCase() {
+      const createUseCase = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'use-case', `create-${this.name}-use-case.ts`);
+      const createUseCaseGenerate = require('../templates/infrastructure/express/modules/generate/use-case/create--use-case.command.js');
+  
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/use-case',
+        createUseCase,
+        createUseCaseGenerate.get(this.name),
+      );
+
+      const deleteUseCase = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'use-case', `delete-${this.name}-by-id.ts`);
+      const deleteUseCaseGenerate = require('../templates/infrastructure/express/modules/generate/use-case/delete--use-case.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/use-case',
+        deleteUseCase,
+        deleteUseCaseGenerate.get(this.name),
+      );
+
+      const findAllsUseCase = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'use-case', `find-all-${this.name}s.ts`);
+      const findAllsUseCaseGenerate = require('../templates/infrastructure/express/modules/generate/use-case/find-all-s-use-case.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/use-case',
+        findAllsUseCase,
+        findAllsUseCaseGenerate.get(this.name),
+      );
+
+      const findByIdUseCase = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'use-case', `find-${this.name}-by-id.ts`);
+      const findByIdUseCaseGenerate = require('../templates/infrastructure/express/modules/generate/use-case/find-by-id-use-case.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/use-case',
+        findByIdUseCase,
+        findByIdUseCaseGenerate.get(this.name),
+      );
+
+      const updateUseCase = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'use-case', `update-${this.name}-use-case.ts`);
+      const updateUseCaseGenerate = require('../templates/infrastructure/express/modules/generate/use-case/update--use-case.command.js');
+
+      this.generate(
+        './src/infrastructure/express/modules/'+this.name+'s/use-case',
+        updateUseCase,
+        updateUseCaseGenerate.get(this.name),
+      );
     }
 
     generateModulesRepository() {
@@ -66,7 +298,7 @@ module.exports = class ModuleCommand extends BaseCommand {
             findByIdRepositoryGenerate.get(this.name)
         );
 
-        const updateRepository = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'repository', `update-${this.name}-repository.ts`);
+        const updateRepository = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'repository', `update-${this.name}-by-id-repository.ts`);
         const updateRepositoryGenerate = require('../templates/infrastructure/express/modules/generate/repository/update--repository.command.js');
 
         this.generate(
@@ -135,7 +367,7 @@ module.exports = class ModuleCommand extends BaseCommand {
     generateModulesDocs() {
       const createDefinitionsSwagger = path.join('./', 'src', 'infrastructure', 'express' ,'modules',  `${this.name}s`, 'docs', `create-${this.name}-definitions-swagger.ts`);
       const createDefinitionsSwaggerGenerate = require('../templates/infrastructure/express/modules/generate/docs/create--definitions-swagger.command.js');
-      console.log(this.name, 'name')
+
       this.generate(
         `./src/infrastructure/express/modules/${this.name}s/docs`,
         createDefinitionsSwagger,

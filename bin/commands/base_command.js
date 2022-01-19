@@ -16,14 +16,14 @@ module.exports = class BaseCommand {
 
   generate(dir, path, data, log) {
     if (!fs.existsSync(dir)) {
-      console.log((`Creating directory ...`));
+      //console.log((`Creating directory ...`));
       fs.mkdirSync(dir, { recursive: true });
     }
 
     if (!fs.existsSync(path)) {
       fs.writeFileSync(path, data, 'utf-8');
     } else {
-      console.log((`Resource project already exists`));
+      //console.log((`Resource project already exists`));
       return true
     }
   }
