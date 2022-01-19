@@ -24,13 +24,13 @@ export function cli(argv) {
     }
 
     if(
-        argv[2] !== 'create' || 
-        argv[2] !== 'c' || 
-        argv[2] !== 'module' || 
-        argv[2] !== 'm' || 
-        argv[2] !== '--version' || 
-        argv[2] !== '-v' || 
-        argv[2] !== '--help' ||
+        argv[2] !== 'create' && 
+        argv[2] !== 'c' && 
+        argv[2] !== 'module' && 
+        argv[2] !== 'm' && 
+        argv[2] !== '--version' && 
+        argv[2] !== '-v' && 
+        argv[2] !== '--help' &&
         argv[2] !== '-h'
         ) {
         console.log('Command not found');

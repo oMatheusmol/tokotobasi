@@ -15,10 +15,10 @@ module.exports = class ModuleCommand extends BaseCommand {
             this.generateModulesAuthentication();
             this.generateModulesController();
             this.generateModulesDocs();
-            // this.generateModulesFactory();
+            this.generateModulesFactory();
             this.generateModulesMiddleware();
             // this.generateModulesInterface();
-            // this.generateModulesRepository();
+            this.generateModulesRepository();
             this.generateModulesRouter();
             // this.generateModulesUseCase();
             // this.generateModulesValidation();
@@ -27,6 +27,109 @@ module.exports = class ModuleCommand extends BaseCommand {
         } catch (err) {
         console.error((err.message));
         }
+    }
+
+    generateModulesRepository() {
+        const crateRepository = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'repository', `create-${this.name}-repository.ts`);
+        const createRepositoryGenerate = require('../templates/infrastructure/express/modules/generate/repository/create--repository.command.js');
+
+        this.generate(
+            './src/infrastructure/express/modules/'+this.name+'s/repository',
+            crateRepository,
+            createRepositoryGenerate.get(this.name)
+        );
+
+        const deleteRepository = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'repository', `delete-${this.name}-by-id-repository.ts`);
+        const deleteRepositoryGenerate = require('../templates/infrastructure/express/modules/generate/repository/delete--repository.command.js');
+
+        this.generate(
+            './src/infrastructure/express/modules/'+this.name+'s/repository',
+            deleteRepository,
+            deleteRepositoryGenerate.get(this.name)
+        );
+
+        const findAllRepository = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'repository', `find-all-${this.name}s-repository.ts`);
+        const findAllRepositoryGenerate = require('../templates/infrastructure/express/modules/generate/repository/find-all-s-repository.command.js');
+
+        this.generate(
+            './src/infrastructure/express/modules/'+this.name+'s/repository',
+            findAllRepository,
+            findAllRepositoryGenerate.get(this.name)
+        );
+
+        const findByIdRepository = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'repository', `find-${this.name}-by-id-repository.ts`);
+        const findByIdRepositoryGenerate = require('../templates/infrastructure/express/modules/generate/repository/find-by-id-repository.command.js');
+
+        this.generate(
+            './src/infrastructure/express/modules/'+this.name+'s/repository',
+            findByIdRepository,
+            findByIdRepositoryGenerate.get(this.name)
+        );
+
+        const updateRepository = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'repository', `update-${this.name}-repository.ts`);
+        const updateRepositoryGenerate = require('../templates/infrastructure/express/modules/generate/repository/update--repository.command.js');
+
+        this.generate(
+            './src/infrastructure/express/modules/'+this.name+'s/repository',
+            updateRepository,
+            updateRepositoryGenerate.get(this.name)
+        );
+
+        const findByNameRepository = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'repository', `find-${this.name}-by-name-repository.ts`);
+        const findByNameRepositoryGenerate = require('../templates/infrastructure/express/modules/generate/repository/find-by-name-repository.command.js');
+
+        this.generate(
+            './src/infrastructure/express/modules/'+this.name+'s/repository',
+            findByNameRepository,
+            findByNameRepositoryGenerate.get(this.name)
+        );
+    }
+
+    generateModulesFactory() {
+      const createControllerFactory = path.join('./', 'src', 'infrastructure', 'express' ,'modules',  `${this.name}s`, 'factory', `create-${this.name}-controller-factory.ts`);
+      const createControllerFactoryGenerate = require('../templates/infrastructure/express/modules/generate/factory/create--controller-factory.command.js');
+  
+      this.generate(
+        `./src/infrastructure/express/modules/${this.name}s/factory`,
+        createControllerFactory,
+        createControllerFactoryGenerate.get(this.name),
+      );
+  
+      const deleteControllerFactory = path.join('./', 'src', 'infrastructure', 'express' ,'modules',  `${this.name}s`, 'factory', `delete-${this.name}-by-id-controller-factory.ts`);
+      const deleteControllerFactoryGenerate = require('../templates/infrastructure/express/modules/generate/factory/delete--controller-factory.command.js');
+  
+      this.generate(
+        `./src/infrastructure/express/modules/${this.name}s/factory`,
+        deleteControllerFactory,
+        deleteControllerFactoryGenerate.get(this.name),
+      );
+  
+      const findAllsControllerFactory = path.join('./', 'src', 'infrastructure', 'express' ,'modules',  `${this.name}s`, 'factory', `find-all-${this.name}s-controller-factory.ts`);
+      const findAllsControllerFactoryGenerate = require('../templates/infrastructure/express/modules/generate/factory/find-all-s-controller-factory.command.js');
+  
+      this.generate(
+        `./src/infrastructure/express/modules/${this.name}s/factory`,
+        findAllsControllerFactory,
+        findAllsControllerFactoryGenerate.get(this.name),
+      );
+  
+      const findByIdControllerFactory = path.join('./', 'src', 'infrastructure', 'express' ,'modules',  `${this.name}s`, 'factory', `find-${this.name}-by-id-controller-factory.ts`);
+      const findByIdControllerFactoryGenerate = require('../templates/infrastructure/express/modules/generate/factory/find--by-id-controller-factory.command.js');
+  
+      this.generate(
+        `./src/infrastructure/express/modules/${this.name}s/factory`,
+        findByIdControllerFactory,
+        findByIdControllerFactoryGenerate.get(this.name),
+      );
+  
+      const updateControllerFactory = path.join('./', 'src', 'infrastructure', 'express' ,'modules',  `${this.name}s`, 'factory', `update-${this.name}-controller-factory.ts`);
+      const updateControllerFactoryGenerate = require('../templates/infrastructure/express/modules/generate/factory/update--controller-factory.command.js');
+  
+      this.generate(
+        `./src/infrastructure/express/modules/${this.name}s/factory`,
+        updateControllerFactory,
+        updateControllerFactoryGenerate.get(this.name),
+      );
     }
 
     generateModulesDocs() {
@@ -122,7 +225,7 @@ module.exports = class ModuleCommand extends BaseCommand {
           findByIdControllerGenerate.get(this.name),
         );
     
-        const updateController = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'controller', 'update-${this.name}-controller.ts');
+        const updateController = path.join('./', 'src', 'infrastructure', 'express' ,'modules', `${this.name}s`, 'controller', `update-${this.name}-controller.ts`);
         const updateControllerGenerate = require(`../templates/infrastructure/express/modules/generate/controller/update--controller.command.js`);
     
         this.generate(
